@@ -51,47 +51,107 @@
             </mat-error>
           </mat-form-field>
         </div>
-        <div class="upload-container">
-          <div>
-            <input type="file" class="file-input"
-                   (change)="onFileSelected()" #fileUpload>
+        <div>
+          <input type="file" class="file-input" name="campoSelfie"
+                 [accept]="requiredFileType"
+                 (change)="onFileSelected($event)" #fileUploadSelfie>
 
-            <div class="file-upload">
-              {{"No file uploaded yet."}}
-              <button mat-mini-fab color="primary" class="upload-btn"
-                      (click)="fileUpload.click()">
-                <mat-icon>attach_file</mat-icon>
-              </button>
-            </div>
+          <div class="file-upload">
+            {{nomeArquivoSelfie || "Nenhuma selfie adicionada."}}
+
+            <button mat-mini-fab color="primary" class="upload-btn"
+                    (click)="fileUploadSelfie.click()">
+              <mat-icon>attach_file</mat-icon>
+            </button>
+
           </div>
-          <div>
-            <input type="file" class="file-input"
-                   (change)="onFileSelected()" #fileUpload>
 
-            <div class="file-upload">
-              {{"No file uploaded yet."}}
-              <button mat-mini-fab color="primary" class="upload-btn"
-                      (click)="fileUpload.click()">
-                <mat-icon>attach_file</mat-icon>
-              </button>
-            </div>
-          </div>
-          <div>
-            <input type="file" class="file-input"
-                   (change)="onFileSelected()" #fileUpload>
+          <div class="progress">
 
-            <div class="file-upload">
-              {{"No file uploaded yet."}}
-              <button mat-mini-fab color="primary" class="upload-btn"
-                      (click)="fileUpload.click()">
-                <mat-icon>attach_file</mat-icon>
-              </button>
-            </div>
+            <mat-progress-bar class="progress-bar" mode="determinate"
+                              [value]="uploadProgress" *ngIf="uploadProgress">
+
+            </mat-progress-bar>
+
+            <mat-icon class="cancel-upload" (click)="cancelUpload()"
+                      *ngIf="uploadProgress">delete_forever
+            </mat-icon>
+
           </div>
         </div>
+
+        <div>
+          <input type="file" class="file-input" name="campoDocumentoPessoal"
+                 [accept]="requiredFileType"
+                 (change)="onFileSelected($event)" #fileUploadDocumentoPessoal>
+
+          <div class="file-upload">
+
+            {{nomeArquivoDocumentoPessoal || "Nenhum documento pessoal adicionado."}}
+
+            <button mat-mini-fab color="primary" class="upload-btn"
+                    (click)="fileUploadDocumentoPessoal.click()">
+              <mat-icon>attach_file</mat-icon>
+            </button>
+
+          </div>
+
+          <div class="progress">
+
+            <mat-progress-bar class="progress-bar" mode="determinate"
+                              [value]="uploadProgress" *ngIf="uploadProgress">
+
+            </mat-progress-bar>
+
+            <mat-icon class="cancel-upload" (click)="cancelUpload()"
+                      *ngIf="uploadProgress">delete_forever
+            </mat-icon>
+
+          </div>
+        </div>
+
+        <div>
+          <input type="file" class="file-input" name="campoComprovanteResidencia"
+                 [accept]="requiredFileType"
+                 (change)="onFileSelected($event)" #fileUploadComprovanteResidencia>
+
+          <div class="file-upload">
+
+            {{nomeArquivoComprovanteResidencia || "Nenhum comprovante de residência adicionado."}}
+
+            <button mat-mini-fab color="primary" class="upload-btn"
+                    (click)="fileUploadComprovanteResidencia.click()">
+              <mat-icon>attach_file</mat-icon>
+            </button>
+
+          </div>
+
+          <div class="progress">
+
+            <mat-progress-bar class="progress-bar" mode="determinate"
+                              [value]="uploadProgress" *ngIf="uploadProgress">
+
+            </mat-progress-bar>
+
+            <mat-icon class="cancel-upload" (click)="cancelUpload()"
+                      *ngIf="uploadProgress">delete_forever
+            </mat-icon>
+
+          </div>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Selecione sua cidade</mat-label>
+            <select matNativeControl formControlName="cidadeSelecionada">
+              <option *ngFor="let cidade of cidades" [value]="cidade">{{ cidade.nome }}</option>
+            </select>
+          </mat-form-field>
+        </div>
+
         <mat-card-actions>
           <div>
-            <button mat-raised-button type="submit" color="primary">Cadastrar</button>
+            <button mat-raised-button type="submit" color="primary" [disabled]="!cadastroCandidatoForm.valid">Cadastrar</button>
             <button mat-raised-button color="warn" routerLink="/">Cancelar</button>
           </div>
         </mat-card-actions>

@@ -5,9 +5,3 @@ mat-form-field {
 .file-input {
   display: none;
 }
-
-.upload-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem; /* espaçamento vertical entre as divs */
-}

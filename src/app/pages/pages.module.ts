@@ -10,11 +10,12 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
 import {RouterLink} from "@angular/router";
 import { ConsultarCandidaturaPageComponent } from './consultar-candidatura-page/consultar-candidatura-page.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {NgxMaskDirective, NgxMaskPipe, provideNgxMask} from "ngx-mask";
 import {MatIconModule} from "@angular/material/icon";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 @NgModule({
@@ -26,19 +27,21 @@ import {MatIconModule} from "@angular/material/icon";
     LoginPageComponent,
     ConsultarCandidaturaPageComponent
   ],
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatButtonModule,
-    MatMenuModule,
-    RouterLink,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatDatepickerModule,
-    NgxMaskDirective,
-    NgxMaskPipe,
-    MatIconModule
-  ],
+    imports: [
+        CommonModule,
+        MatCardModule,
+        MatButtonModule,
+        MatMenuModule,
+        RouterLink,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatDatepickerModule,
+        NgxMaskDirective,
+        NgxMaskPipe,
+        MatIconModule,
+        MatProgressBarModule,
+        FormsModule
+    ],
   exports: [
     CadastroCandidatoPageComponent,
     HomePageComponent,
