@@ -1,2 +1,2 @@
 # rocket-web
-Projeto Backend utilizando Spring Boot, Java 11
+Projeto Frontend utilizando Angular 15 + Angular Material de UI
