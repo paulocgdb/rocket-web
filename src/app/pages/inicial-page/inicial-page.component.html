@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-content>
+    <button mat-button [matMenuTriggerFor]="aboveMenu">Candidato</button>
+    <mat-menu #aboveMenu="matMenu" yPosition="above">
+      <button mat-menu-item routerLink="/cadastro-candidato">Cadastrar</button>
+      <button mat-menu-item routerLink="/consultar-candidatura">Consultar candidatura</button>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="belowMenu">Área restrita</button>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+      <button mat-menu-item routerLink="/area-restrita">Entrar</button>
+    </mat-menu>
+
+  </mat-card-content>
+</mat-card>

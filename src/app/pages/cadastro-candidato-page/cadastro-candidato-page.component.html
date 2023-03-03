@@ -1,0 +1,101 @@
+<mat-card>
+  <mat-card-content>
+    <div>
+      <form [formGroup]="cadastroCandidatoForm" (ngSubmit)="onSubmit()">
+        <div>
+          <mat-form-field appearance="outline" style="width: 35%;">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome">
+            <mat-error *ngIf="cadastroCandidatoForm.controls['nome'].hasError('required')">Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Data de Nascimento</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="cadastroCandidatoForm.controls['dataNascimento'].hasError('required')">Campo obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>CPF</mat-label>
+            <input matInput formControlName="cpf" mask="000.000.000-00">
+            <mat-error *ngIf="cadastroCandidatoForm.controls['cpf'].hasError('required')">Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Nome da Mãe</mat-label>
+            <input matInput formControlName="nomeMae">
+            <mat-error *ngIf="cadastroCandidatoForm.controls['nomeMae'].hasError('required')">Campo obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+            <mat-error *ngIf="cadastroCandidatoForm.controls['email'].hasError('required')">Campo obrigatório
+            </mat-error>
+            <mat-error *ngIf="cadastroCandidatoForm.controls['email'].hasError('email')">Email inválido</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" formControlName="senha" maxlength="20" minlength="8">
+            <mat-error *ngIf="cadastroCandidatoForm.controls['senha'].hasError('required')">Campo obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="upload-container">
+          <div>
+            <input type="file" class="file-input"
+                   (change)="onFileSelected()" #fileUpload>
+
+            <div class="file-upload">
+              {{"No file uploaded yet."}}
+              <button mat-mini-fab color="primary" class="upload-btn"
+                      (click)="fileUpload.click()">
+                <mat-icon>attach_file</mat-icon>
+              </button>
+            </div>
+          </div>
+          <div>
+            <input type="file" class="file-input"
+                   (change)="onFileSelected()" #fileUpload>
+
+            <div class="file-upload">
+              {{"No file uploaded yet."}}
+              <button mat-mini-fab color="primary" class="upload-btn"
+                      (click)="fileUpload.click()">
+                <mat-icon>attach_file</mat-icon>
+              </button>
+            </div>
+          </div>
+          <div>
+            <input type="file" class="file-input"
+                   (change)="onFileSelected()" #fileUpload>
+
+            <div class="file-upload">
+              {{"No file uploaded yet."}}
+              <button mat-mini-fab color="primary" class="upload-btn"
+                      (click)="fileUpload.click()">
+                <mat-icon>attach_file</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+        <mat-card-actions>
+          <div>
+            <button mat-raised-button type="submit" color="primary">Cadastrar</button>
+            <button mat-raised-button color="warn" routerLink="/">Cancelar</button>
+          </div>
+        </mat-card-actions>
+      </form>
+    </div>
+  </mat-card-content>
+</mat-card>
