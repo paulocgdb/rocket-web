@@ -5,17 +5,17 @@ import {Cidade} from "./cidade.model";
 export class Usuario {
   constructor(
     public id?: number,
-    public nome?: string,
-    public dataNascimento?: Date,
-    public cpf?: string,
-    public nomeDaMae?: string,
-    public email?: string,
-    public senha?: string,
-    public cidade?: Cidade,
-    public arquivoSelfie?: Documento,
-    public arquivoDocumentoPessoal?: Documento,
     public arquivoComprovanteResidencia?: Documento,
+    public arquivoDocumentoPessoal?: Documento,
+    public arquivoSelfie?: Documento,
+    public cidade?: Cidade,
+    public cpf?: string,
+    public dataNascimento?: Date,
+    public email?: string,
+    public nome?: string,
+    public nomeDaMae?: string,
     public perfil?: Perfil,
+    public senha?: string
   ) {
   }
 }
