@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {InicialPageComponent} from "./pages/inicial-page/inicial-page.component";
-import {CadastroCandidatoPageComponent} from "./pages/cadastro-candidato-page/cadastro-candidato-page.component";
+import {CadastroCandidatoPageComponent} from "./pages/cadastrar-candidato-page/cadastro-candidato-page.component";
 import {
   ConsultarCandidaturaPageComponent
 } from "./pages/consultar-candidatura-page/consultar-candidatura-page.component";

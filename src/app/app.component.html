@@ -1,5 +1,15 @@
 <p>
   <mat-toolbar color="primary">
+    <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon"
+            aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="">
+        <mat-icon>arrow_back</mat-icon>
+        <span>Página Inicial</span>
+      </button>
+    </mat-menu>
     <span>Rocket Consórcio</span>
     <span class="example-spacer"></span>
   </mat-toolbar>

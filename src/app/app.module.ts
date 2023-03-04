@@ -11,8 +11,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {registerLocaleData} from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-import {MatNativeDateModule, MAT_DATE_FORMATS, DateAdapter, MAT_DATE_LOCALE} from '@angular/material/core';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {CustomDateAdapter} from "./utils/date-utils";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {CustomDateAdapter} from "./utils/date-utils";
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatMenuModule
   ],
   providers: [
     {
@@ -35,10 +37,11 @@ import {CustomDateAdapter} from "./utils/date-utils";
       useValue: 'pt'
     },
     {provide: DateAdapter, useClass: CustomDateAdapter},
-    {provide: MAT_DATE_FORMATS,
+    {
+      provide: MAT_DATE_FORMATS,
       useValue: {
-        parse: {dateInput: 'DD/MM/YYYY'},
-        display: {dateInput: 'input', monthYearLabel: 'MMM YYYY', dateA11yLabel: 'LL', monthYearA11yLabel: 'MMMM YYYY'}
+        parse: {dateInput: 'dd/mm/yyyy'},
+        display: {dateInput: 'input', monthYearLabel: 'mmm yyyy', dateA11yLabel: 'll', monthYearA11yLabel: 'mmmm yyyy'}
       }
     },
     {provide: MAT_DATE_LOCALE, useValue: 'pt'},

@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Usuario} from "../../models/usuario.model";
 import {Cidade} from "../../models/cidade.model";
 
 @Component({
@@ -13,14 +12,19 @@ export class CadastroCandidatoPageComponent {
   @Input() requiredFileType !: string;
 
   nomeArquivoSelfie = '';
+  arquivoSelfie: File | null = null;
   campoSelfie = "campoSelfie";
 
   nomeArquivoDocumentoPessoal = '';
   campoDocumentoPessoal = "campoDocumentoPessoal";
+  arquivoDocumentoPessoal: File | null = null;
 
   nomeArquivoComprovanteResidencia = '';
+  arquivoComprovanteResidencia: File | null = null;
 
   uploadProgress !: number;
+
+  arquivosCompletos: boolean = false;
 
   cidades: Cidade[] = [
     {id: 1, nome: 'Goiânia'},
@@ -30,7 +34,7 @@ export class CadastroCandidatoPageComponent {
 
   constructor(private fb: FormBuilder) {
     this.cadastroCandidatoForm = this.fb.group({
-      nome: ['', [Validators.required]],
+      nome: ['', [Validators.required, Validators.pattern('[a-zA-Z\\s]+')],],
       dataNascimento: ['', [Validators.required]],
       cpf: ['', [Validators.required]],
       nomeMae: ['', [Validators.required]],
@@ -48,18 +52,22 @@ export class CadastroCandidatoPageComponent {
     const files = target?.files as FileList;
 
     if (files[0]) {
-      debugger
       if (target.name == this.campoSelfie) {
         this.nomeArquivoSelfie = files[0].name;
+        this.arquivoSelfie = files[0];
       } else if (target.name == this.campoDocumentoPessoal) {
         this.nomeArquivoDocumentoPessoal = files[0].name;
+        this.arquivoDocumentoPessoal = files[0];
       } else {
         this.nomeArquivoComprovanteResidencia = files[0].name;
+        this.arquivoComprovanteResidencia = files[0];
       }
-
+      debugger
+      if (this.arquivoSelfie && this.arquivoDocumentoPessoal && this.arquivoComprovanteResidencia) {
+        this.arquivosCompletos = true;
+      }
     }
   }
-
 
   cancelUpload() {
 
