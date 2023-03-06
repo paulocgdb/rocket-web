@@ -1,23 +1,29 @@
-import {Component} from '@angular/core';
-import {Status} from "../../models/status.model";
-
-export interface PeriodicElement {
-  id: number;
-  dataCriacao: Date;
-  status: Status;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {id: 1, dataCriacao: new Date("2023/01/03"), status: new Status(1, "INDEFERIDA")},
-  {id: 2, dataCriacao: new Date("2023/02/03"), status: new Status(1, "DEFERIDA")}
-];
+import {Component, OnInit} from '@angular/core';
+import {CandidaturaService} from "../../services/candidatura-service";
+import {Candidatura} from "../../models/candidatura.model";
 
 @Component({
   selector: 'app-consultar-candidatura-page',
   templateUrl: './consultar-candidatura-page.component.html',
   styleUrls: ['./consultar-candidatura-page.component.css']
 })
-export class ConsultarCandidaturaPageComponent {
+export class ConsultarCandidaturaPageComponent implements OnInit {
   displayedColumns: string[] = ['id', 'dataCriacao', 'status', 'acoes'];
-  dataSource = ELEMENT_DATA;
+  dataSource: Candidatura[] = [];
+
+  constructor(private candidaturaService: CandidaturaService) {
+  }
+
+  ngOnInit(): void {
+    this.candidaturaService.obterCandidaturasEmAnalise().subscribe(
+      data => {
+        this.dataSource = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+
 }

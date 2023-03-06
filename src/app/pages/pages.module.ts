@@ -45,7 +45,7 @@ import {HttpClientModule} from "@angular/common/http";
     FormsModule,
     MatTableModule,
     DiretivasModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [
     CadastroCandidatoPageComponent,
