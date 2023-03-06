@@ -26,7 +26,11 @@ export class LoginPageComponent {
     this.loginService.realizarLogin(this.loginForm.value).subscribe(
       data => {
         if(data) {
-          this.router.navigate(['/consultar-candidatura']);
+          if(data == 1) {
+            this.router.navigate(['/listar-candidaturas']);
+          } else {
+            this.router.navigate(['/consultar-candidatura']);
+          }
         }
 
       },
