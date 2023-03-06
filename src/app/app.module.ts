@@ -40,7 +40,7 @@ import {MatMenuModule} from "@angular/material/menu";
     {
       provide: MAT_DATE_FORMATS,
       useValue: {
-        parse: {dateInput: 'dd/mm/yyyy'},
+        parse: {dateInput: 'yyyy/MM/dd'},
         display: {dateInput: 'input', monthYearLabel: 'mmm yyyy', dateA11yLabel: 'll', monthYearA11yLabel: 'mmmm yyyy'}
       }
     },

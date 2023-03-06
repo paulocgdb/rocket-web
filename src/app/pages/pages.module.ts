@@ -18,6 +18,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatTableModule} from "@angular/material/table";
 import {DiretivasModule} from "../diretivas/diretivas.module";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {DiretivasModule} from "../diretivas/diretivas.module";
     MatProgressBarModule,
     FormsModule,
     MatTableModule,
-    DiretivasModule
+    DiretivasModule,
+    HttpClientModule
   ],
   exports: [
     CadastroCandidatoPageComponent,
