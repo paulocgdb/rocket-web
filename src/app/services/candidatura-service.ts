@@ -16,4 +16,14 @@ export class CandidaturaService {
     return this.http.get(url);
   }
 
+  aprovar(id: number): Observable<any> {
+    const url = `${CONFIG.urlApi}/candidaturas/aprovar/${id}`;
+    return this.http.get(url);
+  }
+
+  reprovar(id: number): Observable<any> {
+    const url = `${CONFIG.urlApi}/candidaturas/reprovar/${id}`;
+    return this.http.get(url);
+  }
+
 }

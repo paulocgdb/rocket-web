@@ -6,6 +6,7 @@ import {
   ConsultarCandidaturaPageComponent
 } from "./pages/consultar-candidatura-page/consultar-candidatura-page.component";
 import {LoginPageComponent} from "./pages/login-page/login-page.component";
+import {ListarCandidatoPageComponent} from "./pages/listar-candidato-page/listar-candidato-page.component";
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'area-restrita',
     component: LoginPageComponent
+  },
+  {
+    path: 'listar-candidaturas',
+    component: ListarCandidatoPageComponent
   },
   {
     path: '**',

@@ -24,9 +24,15 @@
         <ng-container matColumnDef="acoes">
           <th mat-header-cell *matHeaderCellDef> Ações</th>
           <td mat-cell *matCellDef="let element">
-            <button mat-icon-button>
-              <mat-icon>visibility</mat-icon>
+            <button *ngIf="element.status.id == 2" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
             </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>restart_alt</mat-icon>
+                <span>Reenviar</span>
+              </button>
+            </mat-menu>
           </td>
         </ng-container>
 
